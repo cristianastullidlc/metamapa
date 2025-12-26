@@ -1,0 +1,550 @@
+/* ============================================
+   ESTILOS PRINCIPALES - Home y Páginas Generales
+   ============================================ */
+
+/* --- Reset Global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   LAYOUT BASE
+   ============================================ */
+
+/* --- Body Principal --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(74, 181, 191, 0.85);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Contenedor Principal --- */
+.container {
+    width: 100%;
+    max-width: 1300px;
+    background: white;
+    border-radius: 16px;
+    margin: 20px auto;
+    padding: 30px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* --- Animación de Entrada --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   ENCABEZADO Y NAVEGACIÓN
+   ============================================ */
+
+/* --- Encabezado de Página --- */
+header.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+header.page-header h1 {
+    color: #4ab5bf;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* --- Navegación del Header --- */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+header nav a {
+    color: #4ab5bf;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+header nav a:hover {
+    color: #3a9ca5;
+    text-decoration: underline;
+}
+
+/* --- Alineación del Navbar a la Derecha --- */
+header.page-header .navbar .container-fluid {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+header.page-header .navbar .container-fluid > div:last-child {
+    margin-left: auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+}
+
+header.page-header .navbar .ms-auto {
+    margin-left: auto !important;
+}
+
+header.page-header .d-flex.ms-auto {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+}
+
+/* ============================================
+   FOOTER ESTILO CONSISTENTE CON HEADER
+   ============================================ */
+
+.page-footer {
+    background: #f8f9fa;                  /* igual que bg-light del header */
+    color: #4ab5bf;                       /* mismo color del brand del navbar */
+    border-top: 1px solid #e0e0e0;        /* borde sutil */
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.08); /* sombra suave hacia arriba */
+    width: 100%;
+}
+
+.page-footer p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL
+   ============================================ */
+
+/* --- Mensaje de Página --- */
+.page-message {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+
+/* --- Botón Base --- */
+.btn {
+    padding: 12px 24px;
+    background: #4ab5bf;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.4);
+}
+
+/* --- Botón de Administrador --- */
+.btn-admin {
+    background: #4ab5bf;
+}
+
+.btn-admin:hover {
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+/* --- Botón Pequeño --- */
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* ============================
+   DETALLE DE HECHO
+   ============================ */
+
+.detalle-imagen {
+    max-width: 100%;
+    max-height: 650px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.detalle-mapa {
+    width: 100%;
+    height: 350px;
+}
+
+/* Por si necesitás responsividad */
+@media (max-width: 576px) {
+    .detalle-mapa {
+        height: 250px;
+    }
+}
+
+/* ============================================
+   SECCIONES
+   ============================================ */
+
+/* --- Sección de Usuario --- */
+.user-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* --- Sección de Administrador --- */
+.admin-section {
+    background: rgba(74, 181, 191, 0.85);
+    border: 2px solid #f59e0b;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+}
+
+/* ============================================
+   MAPA
+   ============================================ */
+
+/* --- Sección del Mapa --- */
+.map-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* --- Contenedor del Mapa --- */
+#map {
+    height: 45vh;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Leyenda del Mapa --- */
+.mapa-leyenda {
+    background: #fff;
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    align-self: flex-start;
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+
+/* --- Separadores --- */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 25px 0;
+}
+
+/* --- Texto Centrado --- */
+.text-center {
+    text-align: center;
+}
+
+/* --- Margen Superior --- */
+.mt-2 {
+    margin-top: 20px;
+}
+
+/* ============================================
+   MENSAJES FLASH
+   ============================================ */
+
+/* --- Mensaje Base --- */
+.flash {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+/* --- Mensaje de Éxito --- */
+.flash.success {
+    background-color: #ECFDF5;
+    color: #10B981;
+    border: 1px solid #6EE7B7;
+}
+
+/* --- Mensaje de Error --- */
+.flash.error {
+    background-color: #FEF2F2;
+    color: #EF4444;
+    border: 1px solid #FCA5A5;
+}
+
+/* ============================================
+   FORMULARIOS DE BÚSQUEDA
+   ============================================ */
+
+/* --- Formulario de Búsqueda --- */
+.search-form {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Grid de Formulario --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* --- Grupo de Campo --- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.form-group input {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+/* ============================================
+   BOTONES PERSONALIZADOS
+   ============================================ */
+
+/* --- Botón de Búsqueda --- */
+.btn-buscar {
+    background: #4ab5bf;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-buscar:hover {
+    background: #3a9ca5;
+}
+
+/* --- Botón de Limpiar --- */
+.btn-limpiar {
+    background: #f3f4f6;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.btn-limpiar:hover {
+    background: #e5e7eb;
+}
+
+/* ============================================
+   ESTILOS DEL LAYOUT - NAVBAR Y BODY
+   ============================================ */
+
+/* --- Body con Background Forzado --- */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgba(74, 181, 191, 0.85) !important;
+}
+
+/* --- Header de Página --- */
+header.page-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* --- Navbar del Header --- */
+header.page-header .navbar {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0.75rem 0 !important;
+    width: 100% !important;
+}
+
+/* --- Container Fluid del Navbar --- */
+header.page-header .navbar .container-fluid {
+    max-width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* --- Brand del Navbar --- */
+header.page-header .navbar-brand {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+/* --- Sección Auto del Navbar --- */
+header.page-header .navbar .ms-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* --- Laptops y Tablets Horizontales --- */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 25px;
+    }
+
+    header.page-header h1 {
+        font-size: 26px;
+    }
+
+    #map {
+        height: 60vh;
+    }
+
+    .btn {
+        min-width: 180px;
+    }
+}
+
+/* --- Tablets Verticales y Celulares Grandes --- */
+@media (max-width: 768px) {
+    body {
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 20px;
+    }
+
+    header.page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .user-section {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #map {
+        height: 50vh;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Celulares Pequeños --- */
+@media (max-width: 480px) {
+    header.page-header h1 {
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .mapa-leyenda {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    #map {
+        height: 45vh;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-buscar, .btn-limpiar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Botón destacado CTA */
+.btn-ver-hecho {
+    background-color: #0d6efd !important; /* Azul Bootstrap */
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+/* Evita que el footer interno genere gris */
+.card-body .card-footer {
+    background: transparent !important;
+    border-top: none !important;
+}

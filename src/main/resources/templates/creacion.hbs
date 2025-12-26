@@ -1,0 +1,118 @@
+{{! ============================================
+    CREACIÓN DE HECHOS
+    Formulario para cargar nuevos hechos históricos
+    ============================================ }}
+
+{{! --- Header: Navegación del Usuario --- }}
+{{#partial "contenido-header"}}
+  {{#if esRegistrado}}
+    <span>👤 {{username}}</span>
+    {{#if esAdmin}}
+      <a href="/dashboard" class="link-primary">Panel Admin</a>
+    {{/if}}
+    <a href="/logout" class="link-danger">Cerrar sesión</a>
+  {{else}}
+    <a href="/login" class="link-primary">Iniciar sesión</a>
+    <a href="/register" class="link-primary">Registrarse</a>
+  {{/if}}
+{{/partial}}
+
+{{! ==========================================
+    CONTENIDO PRINCIPAL
+    ========================================== }}
+{{#partial "contenido"}}
+  <link rel="stylesheet" href="/assets/creacion.css">
+
+  <div class="form-container">
+    {{! --- Título de la Página --- }}
+    <h1>{{titulo}}</h1>
+
+    {{! --- Mensajes Flash --- }}
+    {{#if flash_error}}
+      <div class="flash error">{{flash_error}}</div>
+    {{/if}}
+
+    {{#if flash_message}}
+      <div class="flash success">{{flash_message}}</div>
+    {{/if}}
+
+    {{! ==========================================
+        FORMULARIO DE CREACIÓN DE HECHO
+        ========================================== }}
+    <form action="/hechos" method="POST" enctype="multipart/form-data">
+
+      {{! Campo: Título del Hecho }}
+      <label for="titulo">Título</label>
+      <input type="text" name="titulo" placeholder="Ej: Incendio en el centro" required>
+
+      {{! Campo: Descripción }}
+      <label for="descripcion">Descripción</label>
+      <textarea name="descripcion" placeholder="Describe brevemente el hecho..." required></textarea>
+
+      {{! Campo: Categoría }}
+      <label for="categoria">Categoría</label>
+      <input type="text" name="categoria" placeholder="Ej: Incendios, Accidentes, Contaminación" required>
+
+      {{! Campo: Latitud }}
+      <label for="latitud">Latitud</label>
+      <input type="number" step="0.0001" name="latitud" placeholder="-34.6037" required>
+
+      {{! Campo: Longitud }}
+      <label for="longitud">Longitud</label>
+      <input type="number" step="0.0001" name="longitud" placeholder="-58.3816" required>
+
+      {{! Campo: Fecha del Acontecimiento }}
+      <label for="fechaAcontecimiento">Fecha del Acontecimiento</label>
+      <input type="datetime-local" name="fechaAcontecimiento" required>
+
+      {{! Campo: Multimedia (opcional) }}
+      <label for="multimedia">Contenido Multimedia (imagen o video)</label>
+      <input type="file" name="multimedia" accept="image/*,video/*">
+
+      {{! --- Vista Previa del Archivo --- }}
+      <div class="preview" id="preview-container">
+        <p><strong>Vista previa:</strong></p>
+        <div id="preview-content"></div>
+      </div>
+
+      {{! Botón de Envío }}
+      <button type="submit">📍 Cargar Hecho</button>
+    </form>
+  </div>
+
+  {{! ==========================================
+      SCRIPT: Vista Previa de Multimedia
+      ========================================== }}
+  <script>
+    const input = document.querySelector('input[name="multimedia"]');
+    const previewContainer = document.getElementById('preview-container');
+    const previewContent = document.getElementById('preview-content');
+
+    input.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file) {
+        previewContainer.style.display = 'none';
+        return;
+      }
+
+      const url = URL.createObjectURL(file);
+      previewContent.innerHTML = '';
+
+      if (file.type.startsWith('image/')) {
+        const img = document.createElement('img');
+        img.src = url;
+        previewContent.appendChild(img);
+      } else if (file.type.startsWith('video/')) {
+        const video = document.createElement('video');
+        video.src = url;
+        video.controls = true;
+        previewContent.appendChild(video);
+      }
+
+      previewContainer.style.display = 'block';
+    });
+  </script>
+{{/partial}}
+
+{{> templates/layout}}
+

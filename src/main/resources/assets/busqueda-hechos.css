@@ -1,0 +1,654 @@
+/* ============================================
+   ESTILOS DE BÚSQUEDA DE HECHOS
+   ============================================ */
+
+/* --- Reset Global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   LAYOUT PRINCIPAL
+   ============================================ */
+
+/* --- Body --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(74, 181, 191, 0.85);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Contenedor Principal --- */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* ============================================
+   ENCABEZADO DE PÁGINA
+   ============================================ */
+
+/* --- Header de Página --- */
+.page-header {
+    background: linear-gradient(135deg, #4ab5bf 0%, #3a9ca5 100%);
+    padding: 30px 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* --- Navegación del Header --- */
+.page-header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.page-header nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   SECCIÓN DE BÚSQUEDA
+   ============================================ */
+
+/* --- Sección de Búsqueda --- */
+.search-section {
+    padding: 40px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* --- Formulario de Búsqueda --- */
+.search-form {
+    width: 100%;
+}
+
+/* --- Grid de Formulario --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* --- Grupo de Campo --- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* --- Campos de Entrada --- */
+.form-group input {
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4ab5bf;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #adb5bd;
+}
+
+/* ============================================
+   ACCIONES DEL FORMULARIO
+   ============================================ */
+
+/* --- Contenedor de Acciones --- */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+/* --- Botón Base --- */
+.btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* --- Botón Primario --- */
+.btn-primary {
+    background: #4ab5bf;
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(74, 181, 191, 0.4);
+}
+
+/* --- Botón Secundario --- */
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* --- Botones de Búsqueda --- */
+.btn-buscar {
+    background: #4ab5bf;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-buscar:hover {
+    background: #5a67d8;
+}
+
+/* --- Botón de Búsqueda Principal (Más Llamativo) --- */
+.btn-search-primary {
+    background: linear-gradient(135deg, #4ab5bf 0%, #3a9ca5 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 48px;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-search-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.btn-search-primary:active {
+    transform: translateY(-1px);
+}
+
+/* --- Botón de Limpiar --- */
+.btn-limpiar {
+    background: #f3f4f6;
+    color: #333;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    padding: 14px 32px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-limpiar:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+/* --- Botón de Solicitar Eliminación (Rojo) --- */
+.btn-delete-request {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-delete-request:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+    background: #e5e7eb;
+}
+
+/* ============================================
+   SECCIÓN DE RESULTADOS
+   ============================================ */
+
+/* --- Sección de Resultados --- */
+.results-section {
+    padding: 40px;
+}
+
+/* --- Encabezado de Resultados --- */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.results-header h2 {
+    color: #495057;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- Badge de Cantidad --- */
+.badge {
+    background: linear-gradient(135deg, #4ab5bf 0%, #3a9ca5 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ============================================
+   CONTROLES DE VISTA
+   ============================================ */
+
+/* --- Controles de Vista --- */
+.view-controls {
+    display: flex;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/* --- Botón de Vista --- */
+.btn-view {
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6c757d;
+}
+
+.btn-view:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: #4ab5bf;
+}
+
+.btn-view.active {
+    background: linear-gradient(135deg, #4ab5bf 0%, #3a9ca5 100%);
+    color: white;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================
+   CONTENEDORES DE VISTA
+   ============================================ */
+
+/* --- Contenedor de Vista --- */
+.view-container {
+    display: none;
+}
+
+.view-container.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* --- Animación de Entrada --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   TARJETAS DE HECHOS
+   ============================================ */
+
+/* --- Grid de Hechos --- */
+.hechos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+/* --- Tarjeta de Hecho --- */
+.hecho-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hecho-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: #4ab5bf;
+}
+
+/* --- Encabezado del Hecho --- */
+.hecho-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.hecho-header h3 {
+    color: #2d3748;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    flex: 1;
+}
+
+/* --- Badge de Categoría --- */
+.categoria-badge {
+    background: linear-gradient(135deg, #4ab5bf 0%, #3a9ca5 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* --- Descripción del Hecho --- */
+.hecho-descripcion {
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Detalles del Hecho --- */
+.hecho-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #4a5568;
+}
+
+.detail-item .icon {
+    font-size: 16px;
+}
+
+.detail-item a {
+    color: #4ab5bf;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.detail-item a:hover {
+    text-decoration: underline;
+}
+
+/* --- Footer del Hecho --- */
+.hecho-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.hecho-footer small {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+/* --- Botón Pequeño --- */
+.btn-small {
+    padding: 6px 14px;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* ============================================
+   VISTA DE MAPA
+   ============================================ */
+
+/* --- Contenedor del Mapa --- */
+#vista-mapa {
+    position: relative;
+}
+
+/* --- Mapa --- */
+#map {
+    width: 100%;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Leyenda del Mapa --- */
+.mapa-leyenda {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #4ab5bf;
+    border-radius: 8px;
+}
+
+.mapa-leyenda h4 {
+    color: #495057;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.mapa-leyenda p {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* --- Contenido del Popup --- */
+.popup-content {
+    min-width: 200px;
+}
+
+.popup-content h4 {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.popup-content p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #4a5568;
+}
+
+.popup-content .btn-small {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* ============================================
+   SIN RESULTADOS
+   ============================================ */
+
+/* --- Mensaje de Sin Resultados --- */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+}
+
+.no-results p {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* --- Tablets Grandes --- */
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Tablets --- */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .search-section,
+    .results-section {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .view-controls {
+        width: 100%;
+    }
+
+    .btn-view {
+        flex: 1;
+    }
+
+    .hechos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 400px;
+    }
+}
+
+/* --- Móviles --- */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-buscar, .btn-limpiar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* --- Móviles Pequeños --- */
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 20px;
+    }
+
+    .results-header h2 {
+        font-size: 18px;
+    }
+
+    .hecho-header h3 {
+        font-size: 16px;
+    }
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editando {{coleccion.titulo}}</title>
+    <link rel="stylesheet" href="/assets/dashboard.css">
+</head>
+<body class="dashboard-body">
+<div class="dashboard-container">
+
+    {{> templates/dashboard/_sidebar}}
+
+    <main class="main-content">
+        <header class="main-header">
+            <h1>Editar Colección</h1>
+            <p class="subtitle">{{coleccion.titulo}}</p>
+        </header>
+
+        <div class="section">
+            <form method="POST">
+
+                <div class="alert alert-info">
+                    <strong>ℹ️ Fuente:</strong> Dinámica (automática del sistema)
+                </div>
+
+                <div class="form-group">
+                    <label for="algoritmo">Algoritmo de Consenso *</label>
+                    <select id="algoritmo" name="algoritmo" required>
+                        {{#each todosLosAlgoritmos}}
+                            <option value="{{this.name}}" {{#if this.seleccionado}}selected{{/if}}>
+                                {{this.name}}
+                            </option>
+                        {{/each}}
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success btn-lg">💾 Guardar Cambios</button>
+                    <a href="/dashboard/colecciones/modificar" class="btn btn-secondary">❌ Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Nueva Colección</title>
+  <link rel="stylesheet" href="/assets/dashboard.css">
+  <link rel="stylesheet" href="/assets/creacion.css">
+</head>
+<body class="dashboard-body">
+<div class="dashboard-container">
+
+  {{> templates/dashboard/_sidebar}}
+
+  <main class="main-content">
+    <header class="main-header">
+      <h1>Crear Nueva Colección</h1>
+      <p class="subtitle">Define los criterios para agrupar hechos automáticamente</p>
+    </header>
+
+    <div class="section">
+
+      {{#if flash_error}}
+        <div class="alert alert-error">{{flash_error}}</div>
+      {{/if}}
+      {{#if flash_message}}
+        <div class="alert alert-success">{{flash_message}}</div>
+      {{/if}}
+
+      <form action="/dashboard/colecciones/crear" method="POST">
+
+        <div class="form-group">
+          <label for="titulo">Título *</label>
+          <input type="text" name="titulo" placeholder="Ej: Hechos de Contaminación CABA" required>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción *</label>
+          <textarea name="descripcion" placeholder="Describe la colección..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="algoritmo">Algoritmo de Consenso *</label>
+          <select id="algoritmo" name="algoritmo" required>
+            <option value="" disabled selected>-- Selecciona un algoritmo --</option>
+            {{#each todosLosAlgoritmos}}
+              <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+
+        <h3 class="criterios-title">Criterios de Pertenencia</h3>
+        <p class="criterios-subtitle">Selecciona los criterios que determinarán qué hechos formarán parte de esta colección</p>
+
+        <div class="criterios-container">
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioTitulo">
+              <span class="criterio-nombre">🔤 Por Título</span>
+            </label>
+            <input type="text" name="criterioTituloValor" class="criterio-input" placeholder="Texto a buscar en título">
+          </div>
+
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioCategoria">
+              <span class="criterio-nombre">🏷️ Por Categoría</span>
+            </label>
+            <input type="text" name="criterioCategoriaValor" class="criterio-input" placeholder="Ej: accidente, incendio...">
+          </div>
+
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioDescripcion">
+              <span class="criterio-nombre">📝 Por Descripción</span>
+            </label>
+            <input type="text" name="criterioDescripcionValor" class="criterio-input" placeholder="Texto contenido en descripción">
+          </div>
+
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioFecha">
+              <span class="criterio-nombre">📅 Por Fecha de Acontecimiento</span>
+            </label>
+            <input type="date" name="criterioFechaValor" class="criterio-input">
+          </div>
+
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioFechaCarga">
+              <span class="criterio-nombre">📆 Por Fecha de Carga</span>
+            </label>
+            <input type="date" name="criterioFechaCargaValor" class="criterio-input">
+          </div>
+
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioRango">
+              <span class="criterio-nombre">📊 Por Rango de Fechas</span>
+            </label>
+            <div class="criterio-range">
+              <input type="date" name="criterioRangoDesde" class="criterio-input" placeholder="Desde">
+              <span class="range-separator">hasta</span>
+              <input type="date" name="criterioRangoHasta" class="criterio-input" placeholder="Hasta">
+            </div>
+          </div>
+
+          <div class="criterio-box">
+            <label class="criterio-label">
+              <input type="checkbox" name="criterioUbicacion">
+              <span class="criterio-nombre">📍 Por Ubicación</span>
+            </label>
+            <div class="criterio-coords">
+              <input type="number" step="any" name="criterioLatitudValor" class="criterio-input" placeholder="Latitud">
+              <input type="number" step="any" name="criterioLongitudValor" class="criterio-input" placeholder="Longitud">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-lg">✅ Crear Colección</button>
+          <a href="/dashboard/colecciones/modificar" class="btn btn-secondary">❌ Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+</body>
+</html>

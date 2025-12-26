@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cantidad de Solicitudes de Spam</title>
+    <link rel="stylesheet" href="/assets/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+    {{> templates/dashboard/_sidebar}}
+
+    <main class="main-content">
+        <header class="main-header">
+            <h1>Cantidad de Solicitudes de Spam</h1>
+        </header>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Estadísticas de Spam</h2>
+                {{#if cantidadSpam}}
+                    <a class="btn btn-primary btn-icon" href="/descargar/estadisticas_cantidad_spam.csv" download>
+                        📥 Exportar
+                    </a>
+                {{/if}}
+            </div>
+
+            <div class="table-container">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th class="text-center">Cantidad de Solicitudes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#if cantidadSpam}}
+                        {{#each cantidadSpam}}
+                            {{#if @first}}
+                                <tr>
+                                    <td>{{formatDateOnly fecha}}</td>
+                                    <td class="text-center"><span class="badge badge-info">{{cantidadSpam}}</span></td>
+                                </tr>
+                            {{/if }}
+                        {{/each}}
+                    {{else}}
+                        <tr>
+                            <td colspan="2" class="text-center empty-cell">No hay datos disponibles</td>
+                        </tr>
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+</body>
+</html>

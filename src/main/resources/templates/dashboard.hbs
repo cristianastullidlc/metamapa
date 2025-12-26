@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="/assets/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+    {{> templates/_sidebar}}
+
+    <main class="main-content">
+
+        <header class="main-header">
+            <h1>Bienvenido al Panel de Administración {{username}}</h1>
+            <p class="subtitle">Gestiona el sistema desde aquí</p>
+        </header>
+
+        <section class="widgets-grid">
+
+            <div class="widget">
+                <h4>Usuarios Registrados</h4>
+                <p class="widget-dato">1,204</p>
+            </div>
+
+        </section>
+    </main>
+
+</div>
+
+</body>
+</html>

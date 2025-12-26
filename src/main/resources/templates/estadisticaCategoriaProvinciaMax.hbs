@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Provincia maxima de cada Categoria</title>
+    <link rel="stylesheet" href="/assets/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+    {{> templates/dashboard/_sidebar}}
+
+    <main class="main-content">
+        <header class="main-header">
+            <h1>Provincias con Mayor Cantidad de Hechos por Categoría</h1>
+        </header>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>🗺️ Provincia Máxima por Categoría</h2>
+                {{#if reporte}}
+                    <a class="btn btn-primary btn-icon" href="/descargar/estadisticas_categoria_hechosmaximos.csv" download>
+                        📥 Exportar
+                    </a>
+                {{/if}}
+            </div>
+
+            <div class="table-container">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Categoría</th>
+                            <th>Provincia</th>
+                            <th class="text-center">Cantidad de Hechos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#if reporte}}
+                        {{#each reporte}}
+                            <tr>
+                                <td>{{formatDateOnly fecha}}</td>
+                                <td>{{this.categoria}}</td>
+                                <td>{{this.provincia}}</td>
+                                <td class="text-center"><span class="badge badge-info">{{this.cantidad}}</span></td>
+                            </tr>
+                        {{/each}}
+                    {{else}}
+                        <tr>
+                            <td colspan="4" class="text-center empty-cell">No hay datos disponibles</td>
+                        </tr>
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+</body>
+</html>
